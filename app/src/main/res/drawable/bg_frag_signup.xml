@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="@color/colorAccent"/>
+    </item>
+    <!--<item android:drawable="@drawable/ic_controller" android:height="583.5dp" android:width="100dp" android:gravity="top|left"/>-->
+    <item android:drawable="@drawable/ic_controller" android:gravity="top|left"/>
+</layer-list>
