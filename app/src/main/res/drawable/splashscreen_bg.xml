@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
     <item android:drawable="@drawable/splashscreen_bg_gradient" android:gravity="fill"/>
-    <item android:drawable="@drawable/ic_d_pad" android:height="200dp" android:width="200dp" android:gravity="top|right"/>
-    <item android:drawable="@drawable/ic_b_pad" android:height="180dp" android:width="250dp" android:gravity="bottom|left"/>
+    <item>
+        <bitmap android:src="@drawable/d_pad" android:gravity="top|right"/>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/b_pad" android:gravity="bottom|left"/>
+    </item>
     <item android:drawable="@drawable/ic_logo" android:width="164dp" android:height="79dp" android:gravity="center" />
 </layer-list>
