@@ -5,20 +5,25 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_frag_login">
 
-    <ImageView
-        android:id="@+id/ivLogoLogin"
+    <TextView
+        android:id="@+id/tvLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:contentDescription="logo"
-        app:srcCompat="@drawable/ic_logo" />
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/sarina"
+        android:shadowColor="@color/shadow_black"
+        android:shadowDy="10"
+        android:shadowRadius="25"
+        android:text="Deeto"
+        android:textColor="@color/colorWhite"
+        android:textSize="64sp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ivLogoLogin"
+        android:layout_below="@id/tvLogo"
         android:layout_centerHorizontal="true"
         android:text="Lorem ipsum dolor sit amet, consectetur aliqua."
         android:textAlignment="center"

@@ -4,5 +4,7 @@
         <color android:color="@color/colorAccent"/>
     </item>
     <!--<item android:drawable="@drawable/ic_controller" android:height="583.5dp" android:width="100dp" android:gravity="top|left"/>-->
-    <item android:drawable="@drawable/ic_controller" android:gravity="top|left"/>
+    <item>
+        <bitmap android:src="@drawable/controller" android:gravity="top|left"/>
+    </item>
 </layer-list>

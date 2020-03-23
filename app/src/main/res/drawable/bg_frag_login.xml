@@ -5,6 +5,10 @@
     </item>
     <!--<item android:drawable="@drawable/ic_d_pad" android:height="200dp" android:width="200dp" android:gravity="top|right"/>
     <item android:drawable="@drawable/ic_b_pad" android:height="180dp" android:width="250dp" android:gravity="bottom|left"/>-->
-    <item android:drawable="@drawable/ic_d_pad" android:gravity="top|right"/>
-    <item android:drawable="@drawable/ic_b_pad" android:gravity="bottom|left"/>
+    <item>
+        <bitmap android:src="@drawable/d_pad" android:gravity="top|right"/>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/b_pad" android:gravity="bottom|left"/>
+    </item>
 </layer-list>
