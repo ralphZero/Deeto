@@ -1,9 +1,11 @@
 package com.zeroground.deeto.fragments;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +17,9 @@ public class LoginFragment extends Fragment {
 
     private String title;
     private int page;
+    private TextView tvLogo;
+    private TextView tvSubtitle;
+    public static final int FRAG_POS = 0;
 
     public static LoginFragment newInstance(int page, String title) {
         LoginFragment fragmentFirst = new LoginFragment();
@@ -36,6 +41,19 @@ public class LoginFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frag_login,container,false);
+        View view = inflater.inflate(R.layout.frag_login,container,false);
+        tvLogo = view.findViewById(R.id.tvLogo_l);
+        tvSubtitle = view.findViewById(R.id.tvSubtitle_l);
+        return view;
+    }
+
+    public void animateLogo(int position){
+        if(position==FRAG_POS){
+            ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(tvLogo, View.ALPHA, 1f);
+            fadeAnim.start();
+        }else{
+            ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(tvLogo, View.ALPHA, 0f);
+            fadeAnim.start();
+        }
     }
 }

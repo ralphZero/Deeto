@@ -7,12 +7,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.zeroground.deeto.fragments.LoginFragment;
 import com.zeroground.deeto.fragments.SignupFragment;
+import com.zeroground.deeto.models.SmartFragmentStatePagerAdapter;
 
-public class LoginPagerAdapter extends FragmentPagerAdapter {
+public class LoginPagerAdapter extends SmartFragmentStatePagerAdapter {
     public static final int NUM_PAGES = 2;
 
     public LoginPagerAdapter(@NonNull FragmentManager fm) {
-        super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        super(fm);
     }
 
     @NonNull
