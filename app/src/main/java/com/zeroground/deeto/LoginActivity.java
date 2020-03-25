@@ -2,16 +2,19 @@ package com.zeroground.deeto;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.zeroground.deeto.adapters.LoginPagerAdapter;
 import com.zeroground.deeto.fragments.LoginFragment;
 import com.zeroground.deeto.fragments.SignupFragment;
+import com.zeroground.deeto.models.LockableViewPager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,8 +22,8 @@ import butterknife.ButterKnife;
 public class LoginActivity extends AppCompatActivity {
 
     LoginPagerAdapter adapter;
-    @BindView(R.id.vwpager_login)
-    ViewPager viewPager;
+    @BindView(R.id.vwPager)
+    LockableViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,34 +31,37 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        adapter = new LoginPagerAdapter(getSupportFragmentManager());
+        adapter  = new LoginPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.setSwipeable(false);
+    }
 
-            // This method will be invoked when a new page becomes selected.
-            @Override
-            public void onPageSelected(int position) {
-                Toast.makeText(LoginActivity.this,
-                        "Selected page position: " + position, Toast.LENGTH_SHORT).show();
-                LoginFragment loginFragment = (LoginFragment) adapter.getRegisteredFragment(0);
-                loginFragment.animateLogo(position);
-                SignupFragment signupFragment = (SignupFragment)adapter.getRegisteredFragment(1);
-                signupFragment.animateLogo(position);
-            }
+    public void goToSignup(){
+        viewPager.setCurrentItem(1,true);
+        SignupFragment signupFragment = (SignupFragment)adapter.getRegisteredFragment(1);
+        signupFragment.animateLogo();
+    }
 
-            // This method will be invoked when the current page is scrolled
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                // Code goes here
-                //Log.i("vwpager","Position: "+position+" Offset: "+positionOffset+" PixelOffset: "+positionOffsetPixels);
-            }
+    public void goToLogin(){
+        viewPager.setCurrentItem(0,true);
+        LoginFragment loginFragment = (LoginFragment)adapter.getRegisteredFragment(0);
+        loginFragment.animateLogo();
+    }
 
-            // Called when the scroll state changes:
-            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                // Code goes here
-            }
-        });
+    public int getStatusBarHeight() {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(viewPager.getCurrentItem()==1)
+            goToLogin();
+        else
+            super.onBackPressed();
     }
 }

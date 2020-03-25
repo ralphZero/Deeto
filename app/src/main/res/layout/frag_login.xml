@@ -29,4 +29,33 @@
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="24sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_toSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_newto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="New here ?"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_signupnow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_newto"
+            android:text="Register now!"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
 </RelativeLayout>

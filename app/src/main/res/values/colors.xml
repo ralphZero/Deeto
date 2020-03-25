@@ -7,4 +7,5 @@
     <color name="colorAppBlack">#313131</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="shadow_black">#99000000</color>
+    <color name="colorBtnBack">#FFFFFF</color>
 </resources>
