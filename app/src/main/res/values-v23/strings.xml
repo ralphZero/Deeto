@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Deeto</string>
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="register_now">Register now!</string>
     <string name="deeto">Deeto</string>

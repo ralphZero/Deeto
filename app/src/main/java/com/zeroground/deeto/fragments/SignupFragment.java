@@ -1,5 +1,6 @@
 package com.zeroground.deeto.fragments;
 
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,7 +28,7 @@ import butterknife.ButterKnife;
 public class SignupFragment extends Fragment {
     private String title;
     private int page,statusBarHeight;
-    public static final int FRAG_POS = 1;
+    private LinearLayout btnLayout;
     private TextView tvLogo,tvSubtitle;
     private Toolbar toolbar;
 
@@ -55,6 +59,7 @@ public class SignupFragment extends Fragment {
         toolbar = view.findViewById(R.id.toolbar_signup);
         tvLogo = view.findViewById(R.id.tvLogo_s);
         tvSubtitle = view.findViewById(R.id.tvSubtitle_s);
+        btnLayout = view.findViewById(R.id.ll_btnSignup);
         return view;
     }
 
@@ -68,10 +73,41 @@ public class SignupFragment extends Fragment {
     }
 
     public void animateLogo(){
+        //views init
         tvLogo.setAlpha(0f);
-        ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(tvLogo, View.ALPHA, 1f);
-        fadeAnim.setDuration(800);
-        fadeAnim.start();
+        tvSubtitle.setAlpha(0f);
+        tvLogo.setTranslationX(-200);
+        btnLayout.setTranslationY(200);
+        btnLayout.setAlpha(0f);
+        //Logo anim
+        ObjectAnimator moveAnim = ObjectAnimator.ofFloat(tvLogo,View.TRANSLATION_X,0);
+        moveAnim.setDuration(400);
+        moveAnim.setInterpolator(new DecelerateInterpolator());
+        //logo animator
+        AnimatorSet logoSet = new AnimatorSet();
+        logoSet.playTogether(
+                ObjectAnimator.ofFloat(tvLogo, View.ALPHA, 1f).setDuration(400),
+                moveAnim
+        );
+        //Subtitle anim
+        ObjectAnimator subtitleFade = ObjectAnimator.ofFloat(tvSubtitle,View.ALPHA,1f).setDuration(500);
+        //title animator
+        AnimatorSet titleSet = new AnimatorSet();
+        titleSet.play(logoSet).with(subtitleFade);
+        //BTN Layout anim
+        ObjectAnimator y_tr = ObjectAnimator.ofFloat(btnLayout,View.TRANSLATION_Y,0);
+        y_tr.setDuration(500);
+        y_tr.setInterpolator(new DecelerateInterpolator());
+        //btn animator
+        AnimatorSet btnLaySet = new AnimatorSet();
+        btnLaySet.playTogether(
+                y_tr,
+                ObjectAnimator.ofFloat(btnLayout,View.ALPHA,1f).setDuration(400)
+        );
+        //Main Set
+        AnimatorSet mainSet = new AnimatorSet();
+        mainSet.play(titleSet).before(btnLaySet);
+        mainSet.start();
     }
 
     @Override

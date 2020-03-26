@@ -1,16 +1,9 @@
 package com.zeroground.deeto;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
 import com.zeroground.deeto.adapters.LoginPagerAdapter;
 import com.zeroground.deeto.fragments.LoginFragment;
 import com.zeroground.deeto.fragments.SignupFragment;

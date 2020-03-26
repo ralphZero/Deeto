@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_frag_signup">
 
     <androidx.appcompat.widget.Toolbar
@@ -10,32 +12,104 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
-        android:fitsSystemWindows="true" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvLogo_s"
+    <LinearLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/ll_btnSignup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <TextView
+            android:id="@+id/tvLogo_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sarina"
+            android:shadowColor="@color/shadow_black"
+            android:shadowDy="10"
+            android:shadowRadius="5"
+            android:text="@string/deeto"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="62sp" />
+
+        <TextView
+            android:id="@+id/tvSubtitle_s"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur aliqua."
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_btnSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl1">
+
+        <Button
+            android:id="@+id/btn_signup_google"
+            style="@style/AppTheme.GoogleButtonTheme"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            android:drawableStart="@drawable/ic_google"
+            android:maxWidth="400dp"
+            android:paddingStart="15dip"
+            android:paddingEnd="15dip"
+            android:text="@string/sign_up_with_google"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/btn_signup_facebook"
+            style="@style/AppTheme.FacebookButtonTheme"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="25dp"
+            android:drawableStart="@drawable/ic_facebook_official"
+            android:maxWidth="400dp"
+            android:paddingStart="15dip"
+            android:paddingEnd="15dip"
+            android:text="@string/sign_up_with_facebook" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:fontFamily="@font/sarina"
-        android:shadowColor="@color/shadow_black"
-        android:shadowDy="10"
-        android:shadowRadius="25"
-        android:text="Deeto"
-        android:textColor="@color/colorWhite"
-        android:textSize="64sp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
 
-    <TextView
-        android:id="@+id/tvSubtitle_s"
-        android:layout_width="350dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvLogo_s"
-        android:layout_centerHorizontal="true"
-        android:text="Lorem ipsum dolor sit amet, consectetur aliqua."
-        android:textAlignment="center"
-        android:textColor="@color/colorWhite"
-        android:textSize="24sp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

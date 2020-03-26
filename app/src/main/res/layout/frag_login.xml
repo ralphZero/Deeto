@@ -1,61 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_frag_login">
 
-    <TextView
-        android:id="@+id/tvLogo_l"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:fontFamily="@font/sarina"
-        android:shadowColor="@color/shadow_black"
-        android:shadowDy="10"
-        android:shadowRadius="25"
-        android:text="Deeto"
-        android:textColor="@color/colorWhite"
-        android:textSize="64sp" />
+    <View
+        android:id="@+id/view_l"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvSubtitle_l"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLogo_l"
-        android:layout_centerHorizontal="true"
-        android:text="Lorem ipsum dolor sit amet, consectetur aliqua."
-        android:textAlignment="center"
-        android:textColor="@color/colorWhite"
-        android:textSize="24sp" />
-
-    <RelativeLayout
-        android:id="@+id/rl_toSignup"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp"
-        android:gravity="center">
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/ll_loginBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_chainStyle="spread_inside">
 
         <TextView
-            android:id="@+id/tv_newto"
+            android:id="@+id/tvLogo_l"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:text="New here ?"
+            android:fontFamily="@font/sarina"
+            android:shadowColor="@color/shadow_black"
+            android:shadowDy="10"
+            android:shadowRadius="5"
+            android:text="@string/deeto"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+            android:textSize="62sp" />
 
         <TextView
-            android:id="@+id/tv_signupnow"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvSubtitle_l"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tv_newto"
-            android:text="Register now!"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+            android:text="Lorem ipsum dolor sit amet, consectetur aliqua."
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp" />
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/btn_login_google"
+            style="@style/AppTheme.GoogleButtonTheme"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            android:drawableStart="@drawable/ic_google"
+            android:maxWidth="400dp"
+            android:paddingStart="15dip"
+            android:paddingEnd="15dip"
+            android:text="@string/sign_in_with_google"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/btn_login_facebook"
+            style="@style/AppTheme.FacebookButtonTheme"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="25dp"
+            android:drawableStart="@drawable/ic_facebook_official"
+            android:maxWidth="400dp"
+            android:paddingStart="15dip"
+            android:paddingEnd="15dip"
+            android:text="@string/sign_in_with_facebook" />
+
+        <RelativeLayout
+            android:id="@+id/rl_toSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_newto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="@string/new_here"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_signupnow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/tv_newto"
+                android:text="@string/register_now"
+                android:textColor="@color/colorFacebook"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
