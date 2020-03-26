@@ -50,7 +50,7 @@
             android:id="@+id/tvSubtitle_s"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem ipsum dolor sit amet, consectetur aliqua."
+            android:text="@string/subtitle"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="22sp" />

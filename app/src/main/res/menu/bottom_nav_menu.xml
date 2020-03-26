@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/ic_bnv_home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home_24px"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/ic_bnv_favorites"
+        android:title="@string/wishlist"
+        android:icon="@drawable/ic_favorite_24px"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/ic_bnv_spacer"
+        android:enabled="false"
+        android:title="@string/sell_now"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/ic_bnv_messages"
+        android:title="@string/messages"
+        android:icon="@drawable/ic_message_24px"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/ic_bnv_user"
+        android:title="@string/account"
+        android:icon="@drawable/ic_account_circle_24px"
+        app:showAsAction="ifRoom"/>
+
+</menu>

@@ -2,18 +2,15 @@ package com.zeroground.deeto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import com.zeroground.deeto.adapters.LoginPagerAdapter;
 import com.zeroground.deeto.fragments.LoginFragment;
 import com.zeroground.deeto.fragments.SignupFragment;
 import com.zeroground.deeto.models.LockableViewPager;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
-
     LoginPagerAdapter adapter;
     @BindView(R.id.vwPager)
     LockableViewPager viewPager;

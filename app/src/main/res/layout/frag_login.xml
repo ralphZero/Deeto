@@ -48,7 +48,7 @@
             android:id="@+id/tvSubtitle_l"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem ipsum dolor sit amet, consectetur aliqua."
+            android:text="@string/subtitle"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="22sp" />
@@ -79,8 +79,7 @@
             android:maxWidth="400dp"
             android:paddingStart="15dip"
             android:paddingEnd="15dip"
-            android:text="@string/sign_in_with_google"
-            android:textSize="22sp" />
+            android:text="@string/sign_in_with_google" />
 
         <Button
             android:id="@+id/btn_login_facebook"

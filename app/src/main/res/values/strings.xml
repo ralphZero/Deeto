@@ -7,4 +7,11 @@
     <string name="new_here">New here ?</string>
     <string name="sign_up_with_facebook">Sign up with Facebook</string>
     <string name="sign_up_with_google">Sign up with Google</string>
+    <string name="subtitle">Lorem ipsum dolor sit amet, consectetur aliqua.</string>
+    <string name="home">Home</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="messages">Messages</string>
+    <string name="account">Account</string>
+    <string name="spacer">spacer</string>
+    <string name="sell_now">Sell now</string>
 </resources>

@@ -2,19 +2,20 @@ package com.zeroground.deeto.fragments;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.zeroground.deeto.DeetoActivity;
 import com.zeroground.deeto.LoginActivity;
 import com.zeroground.deeto.R;
 
@@ -26,6 +27,7 @@ public class LoginFragment extends Fragment {
     private View view_l;
     private TextView tvSubtitle,tvSignupNow;
     private LinearLayout btnLayout;
+    private Button btnLoginGoogle;
 
     public static LoginFragment newInstance(int page, String title) {
         LoginFragment fragmentFirst = new LoginFragment();
@@ -36,7 +38,6 @@ public class LoginFragment extends Fragment {
         return fragmentFirst;
     }
 
-    // Store instance variables based on arguments passed
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +55,7 @@ public class LoginFragment extends Fragment {
         tvSignupNow = view.findViewById(R.id.tv_signupnow);
         view_l = view.findViewById(R.id.view_l);
         btnLayout = view.findViewById(R.id.ll_loginBtn);
+        btnLoginGoogle = view.findViewById(R.id.btn_login_google);
         return view;
     }
 
@@ -66,6 +68,14 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((LoginActivity)getActivity()).goToSignup();
+            }
+        });
+        btnLoginGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DeetoActivity.class);
+                getActivity().startActivity(intent);
+                getActivity().finish();
             }
         });
     }
