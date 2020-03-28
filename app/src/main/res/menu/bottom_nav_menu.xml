@@ -18,6 +18,7 @@
         android:id="@+id/ic_bnv_spacer"
         android:enabled="false"
         android:title="@string/sell_now"
+        android:visible="true"
         app:showAsAction="never" />
     <item
         android:id="@+id/ic_bnv_messages"
